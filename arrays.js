@@ -38,3 +38,12 @@ let femidevs2 = femidevs.slice()
 // console.log(femidevs.slice(3));
 // console.log(femidevs.slice(2, 5));
 console.log(femidevs.splice(2, 1, "bfgr"));
+let kid = ['app', 'aim', 'child'];
+kid.push('vill', 'when');
+kid.reverse();
+// kid.sort
+
+
+console.log(kid.join("-"));
+console.log(kid.splice(3, 1))
+console.log(kid);
