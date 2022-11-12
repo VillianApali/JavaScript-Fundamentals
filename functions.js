@@ -138,3 +138,104 @@ function getCard(){
     console.log(value, suit);
 }
 getCard();
+
+function helpMe(){
+    let msg = "Im on fire!!";
+    console.log(msg);
+}
+// console.log(msg);
+helpMe();
+//scoping
+let bird = "eagle";
+function birds(){
+    let bird = "peacock";
+    console.log(bird);
+}
+console.log(bird);
+birds();
+// block scoping
+let radius = 8;
+if(radius > 0){
+    const PI = 3.14;
+    let circ = 2 * PI * radius;
+}
+console.log(radius); // returns 8
+// console.log(PI); PI is not defined
+// console.log(circ); not defined
+
+//lexical scoping, is bound to a parent function
+function outer() {
+    let hero = "Black Panther";
+
+    function inner() {
+        let cryForHelp = `${hero}, please save me!`;
+        console.log(cryForHelp);
+    }
+    inner();
+    console.log(hero);
+}
+outer();
+
+//function expressions
+const sqr = function (num) {
+    return num * num;
+}
+console.log(sqr(10));
+
+
+// can use another function as an argument in another function
+function callTwice (func) {
+    func();
+    func();
+}
+function laugh() {
+    console.log('hahahahahhahahaa');
+}
+callTwice(laugh);
+// block scope are the ifs and the for statements
+
+
+function makeBetweenFunc (min, max) {
+    return function (vill) {
+        return vill >= min && vill <= max;
+    }
+}
+const inAgeRange = makeBetweenFunc (18, 100);
+console.log(inAgeRange(17));
+console.log(inAgeRange(68));
+
+// a call back function is one passed inside another function as an argument which is then invoked inside the outer function
+const x = 1;
+{
+    const x = 2;
+    console.log(x); // ReferenceError
+  
+}
+console.log(x);
+
+// var declarations are not scoped to block 
+{
+    var y = 1;
+    
+}
+console.log(y);
+
+function doubleArr (arr) {
+    const result  = [];
+    for (let num of arr){
+        let double = num * 2;
+        result.push(double);
+        
+        // return result;
+    }
+    return result;
+}
+console.log(doubleArr([1, 2, 3]));
+
+function multiply(x, y){
+    return x * y;
+}const som = {
+    product: multiply
+}
+// console.log(som.product(2, 5));
+console.log(multiply(2, 5))
